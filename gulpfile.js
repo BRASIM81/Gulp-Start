@@ -9,6 +9,7 @@ const   gulp = require('gulp'),
         imagemin = require('gulp-imagemin'),
         changed = require('gulp-changed'),
         uglify = require('gulp-uglify'),
+        pug = require('gulp-pug'),
         lineec = require('gulp-line-ending-corrector');
 
 function css(){
@@ -39,25 +40,35 @@ function imgmin() {
         imagemin.jpegtran({progressive:true}),
         imagemin.optipng({optimizationLevel:5})
     ]))
-    .pipe(gulp.dest('./dest/img'))
+    .pipe(gulp.dest('./dest/img'));
+}
+
+function pugToHtml() {
+    return gulp.src('./src/*.pug')
+    .pipe(pug({
+        pretty: true
+    }))
+    .pipe(gulp.dest('./dest/'));
 }
 
 function watch() {
     browsersync.init({
         server: {
-            baseDir: './'
+            baseDir: './dest/'
         }
     });
     gulp.watch('./src/sass/**/*.sass', css);
     gulp.watch('./src/js/**/*.js', javascript);
     gulp.watch('./src/img/*', imgmin);
-    gulp.watch(['./*.html', './src/sass/**/*.sass', './src/js/**/*js']).on('change', browsersync.reload);
+    gulp.watch('./src/*.pug', pugToHtml);
+    gulp.watch(['./dest/*.html', './src/sass/**/*.sass', './src/js/**/*js']).on('change', browsersync.reload);
 }
 
 
 exports.css = css;
 exports.javascript = javascript;
 exports.imgmin = imgmin;
+exports.pugToHtml = pugToHtml;
 exports.watch = watch;
 
 var build = gulp.parallel(watch);
