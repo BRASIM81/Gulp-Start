@@ -1,3 +1,15 @@
-a(href='index.html') home
-a(href="#") contact
-a(href="about.html") about us
+nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    a.navbar-brand(href='#') Always expand
+    button.navbar-toggler(type='button', data-toggle='collapse' data-target='#navbars', aria-controls='navbars', aria-expanded='false', aria-label='Toggle Nav')
+        span.navbar-toggler-icon
+    .collapse.navbar-collapse.justify-content-md-right#navbars
+        ul.navbar-nav
+            li.nav-item.active
+                a.nav-link(href='index.html') Home
+                    span.sr-only current
+            li.nav-item
+                a.nav-link(href="about.html") About
+            li.nav-item
+                a.nav-link(href='#') Contact
+            form.form-inline.my-2.my-md-0(action="")
+                input.form-control(type="text", name="", placeholder='Search')
