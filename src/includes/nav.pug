@@ -4,12 +4,12 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-dark
         span.navbar-toggler-icon
     .collapse.navbar-collapse.d-flex.justify-content-end#navbars
         ul.navbar-nav
-            li.nav-item.active
+            li.nav-item(class=`${page == 'home'? 'active':''}`)
                 a.nav-link(href='index.html') Home
                     span.sr-only current
-            li.nav-item
+            li.nav-item(class=`${page == 'about'? 'active':''}`)
                 a.nav-link(href="about.html") About
-            li.nav-item
+            li.nav-item(class=`${page == 'contact'? 'active':''}`)
                 a.nav-link(href='contact.html') Contact
             form.form-inline.my-2.my-md-0(action="")
                 input.form-control(type="text", name="", placeholder='Search')
