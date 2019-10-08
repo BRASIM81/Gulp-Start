@@ -33,7 +33,7 @@ function javascript(){
 }
 
 function imgmin() {
-    return gulp.src('./src/img/*')
+    return gulp.src('./src/img/*.jpg')
     .pipe(changed('./dest/img'))
     .pipe(imagemin([
         imagemin.gifsicle({interlaced:true}),
@@ -59,9 +59,9 @@ function watch() {
     });
     gulp.watch('./src/sass/**/*.sass', css);
     gulp.watch('./src/js/**/*.js', javascript);
-    gulp.watch('./src/img/*', imgmin);
+    gulp.watch('./src/img/*.jpg', imgmin);
     gulp.watch('./src/**/*.pug', pugToHtml);
-    gulp.watch(['./dest/*.html', './src/sass/**/*.sass', './src/js/**/*js']).on('change', browsersync.reload);
+    gulp.watch(['./dest/*.html', './src/sass/**/*.sass', './src/js/**/*.js', './src/img/*.jpg']).on('change', browsersync.reload);
 }
 
 
