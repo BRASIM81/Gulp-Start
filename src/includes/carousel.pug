@@ -1,0 +1,28 @@
+.main-carousel
+    #carouselCaptions.carousel.slide(data-ride-='carousel')
+        ol.carousel-indicators
+            li(data-target='carouselCaptins', data-slide-to='0', class='active')
+            li(data-target='carouselCaptins', data-slide-to='1')
+            li(data-target='carouselCaptins', data-slide-to='0')
+        .carousel-inner
+            .carousel-item.active
+                img(src="img/beach-caribbean-jetty-237272.jpg", alt="", class='d-block w-100')
+                .carousel-caption.d-none.d-md-block
+                    h5 First Slide
+                    p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, nobis. Nesciunt dicta distinctio, praesentium similique.
+            .carousel-item
+                img(src="img/beach-caribbean-jetty-237272.jpg", alt="", class='d-block w-100')
+                .carousel-caption.d-none.d-md-block
+                    h5 Second Slide
+                    p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, nobis. Nesciunt dicta distinctio, praesentium similique.
+            .carousel-item
+                img(src="img/beach-caribbean-jetty-237272.jpg", alt="", class='d-block w-100')
+                .carousel-caption.d-none.d-md-block
+                    h5 Third Slide
+                    p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, nobis. Nesciunt dicta distinctio, praesentium similique.
+        a.carousel-control-prev(href='#carouselCaptiont', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(area-hidden='true')
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselCaptions', role='buton', data-slide='next')
+            span.carousel-control-next-icon(area-hidden='true')
+            span.sr-only Next
